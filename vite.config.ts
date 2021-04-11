@@ -6,7 +6,8 @@ export default defineConfig({
   esbuild: {
     define: {
       global: 'window'
-    }
+    },
+    treeShaking: true
   },
   plugins: [reactRefresh()]
 })

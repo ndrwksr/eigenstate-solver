@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite src/build",
+    "build": "vite build",
     "serve": "vite preview",
     "clib": "emcc -I src/lib/eigen -I src/lib/spectra/include -Isrc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=1 -O0 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --bind -o src/build/eigen_gen.js src/cpp/embind.cpp"
   },
