@@ -21,7 +21,7 @@ export const Quantum: FC<{
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    workerRef.current = new Worker('src/react/lib/img/hamiltonian');
+    workerRef.current = new Worker('assets/hamiltonian.js');
     workerRef.current.addEventListener('message', ev => {
       console.log(ev);
 

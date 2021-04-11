@@ -1,6 +1,6 @@
 self.postMessage({status: 'import'}, self.opener);
 importScripts('https://unpkg.com/mathjs@9.3.1/lib/browser/math.js');
-importScripts('/src/build/GC', '/src/build/eigen_gen', '/src/build/eigen');
+importScripts('eigen_gen.js', 'GC.mjs', 'eigen.mjs');
 
 // @ts-ignore
 self.onmessage = (ev => hamiltonian(ev.data).then(buffers => self.postMessage({
