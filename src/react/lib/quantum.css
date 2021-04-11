@@ -1,0 +1,70 @@
+.quantum {
+    position: relative;
+    height: 20rem;
+    width: 20rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .quantum {
+        height: 30rem;
+        width: 30rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .quantum {
+        height: 36rem;
+        width: 36rem;
+    }
+}
+
+canvas {
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.overlay {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s;
+}
+
+.overlay.visible {
+    animation: overlay 2s linear infinite;
+}
+
+@keyframes overlay {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.status {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.substatus{
+    font-size: 1.25rem;
+    text-align: center;
+    opacity: 0.75;
+}

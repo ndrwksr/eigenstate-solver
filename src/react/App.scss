@@ -1,0 +1,237 @@
+.App {
+    @apply py-2 md:py-3 lg:py-4 lg:h-screen;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.simulation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.simulation-body {
+    @apply py-10 lg:py-16;
+    @apply lg:px-20;
+    display: flex;
+    flex-direction: row;
+    background: black;
+}
+
+.simulation-body-top {
+    margin-top: 8rem;
+    display: flex;
+    flex-shrink: 0;
+    height: 4rem;
+    width: 100%;
+    background: linear-gradient(to top, black, transparent);
+}
+.simulation-body-bottom {
+    display: flex;
+    flex-shrink: 0;
+    height: 4rem;
+    width: 100%;
+    background: linear-gradient(to bottom, black, transparent);
+}
+
+.quantum-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes slide-from-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-from-right {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: white;
+    font-size: 1.25rem;
+    animation: slide-from-right 1s forwards;
+    opacity: 0;
+    animation-delay: calc(200ms * var(--index));
+}
+
+h2 {
+    position: absolute;
+    top: 2rem;
+    width: 100%;
+    @apply px-4;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    animation: slide-from-left 1s forwards;
+    margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    h2 {
+        font-size: 3rem
+    }
+}
+
+h6 {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+input {
+    display: flex;
+    width: 100%;
+    border: 1px solid;
+    padding: 2px 4px;
+    border-radius: .125rem;
+    background: #FFF2;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.controls {
+    @apply mt-8 lg:mt-0 lg:ml-32;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    width: 20rem;
+    height: 100%;
+
+    @media (min-width: 768px) {
+        & {
+            width: 30rem;
+        }
+    }
+
+    @media (min-width 1024px) {
+        & {
+            width: 100%;
+        }
+    }
+}
+
+button {
+    transition: transform 300ms;
+    border: 1px solid;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.selected-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+
+    input {
+        margin: 0 1rem;
+    }
+
+    button {
+        display: flex;
+        padding: 2px;
+        border-radius: .25rem;
+        background: #fff4;
+        color: white;
+        font-size: 1rem;
+        font-weight:700;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+form {
+    @apply p-4;
+    border: 1px solid white;
+    background: #FFF2;
+    border-radius: 1rem;
+}
+
+input.required {
+    border: 1px solid red;
+}
+
+input[type=submit] {
+    height: 3rem;
+    font-size: 1.25rem;
+    transition: transform .3s;
+
+    &:disabled {
+        opacity: 0.5;
+    }
+
+    &:not([disabled]) {
+        border: 1px solid;
+        border-image-slice: 1;
+        border-radius: 0.25rem;
+        border-image-source: linear-gradient(-30deg, blue, red);
+
+        animation: ready-to-run 300ms forwards;
+
+        &:hover {
+            animation: run-hover 2s ease-in-out infinite;
+            transform: scale(1.05);
+        }
+    }
+}
+
+@keyframes ready-to-run {
+    0% {
+        box-shadow: 0 0 5px 5px transparent;
+    }
+    100% {
+        box-shadow: 0 0 5px 5px #FFF1;
+    }
+}
+
+@keyframes run-hover {
+    0% {
+        background: #FFF2;
+    }
+    50% {
+        background: #FFF4;
+    }
+    100% {
+        background: #FFF2;
+    }
+}
